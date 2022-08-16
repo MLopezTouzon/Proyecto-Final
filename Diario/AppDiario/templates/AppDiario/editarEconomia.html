@@ -1,0 +1,26 @@
+{% extends "AppDiario/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1 class="text-white font-weight-bold"> EDITAR POSTEOS DE ECONOMIA </h1>
+                        <hr class="divider" />
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+<h1> EDITAR POST: {{ post.titulo }}</h1>
+
+    <form action="{% url 'editarEconomia' post %}" method="POST" enctype="multipart/form-data" class="form-control"> {% csrf_token %}
+
+        {{ media }}
+        {{ formulario.as_p }}
+
+        <p><input type="submit" value="Enviar"></p>
+
+    </form>
+</div>
+</div>
+</div>
+{% endblock %}

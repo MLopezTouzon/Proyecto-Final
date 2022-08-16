@@ -1,0 +1,20 @@
+{% extends "AppDiario/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1 class="text-white font-weight-bold">{{ posteo.titulo }}</h1>
+                        <hr class="divider" />
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h3 style="margin-bottom: 40px;"><b>{{ posteo.descripcion | safe }}</b></h3>
+<img src="{{ foto }}" alt="imagen del post" class="image-fluid" style="max-height: 600px;margin-bottom: 40px;">
+<p>{{ posteo.contenido | safe }}</p>
+<p><b>Autor : {{ posteo.autor }}</b></p>
+<p><b>Fecha de publicación: {{ posteo.publicado }}</b></p>
+{% if request.user.is_authenticated %}      
+<a class="btn btn-success mb-4" href="{% url 'eliminarEconomia' posteo.titulo %}">Eliminar Posteo</a>   
+<a class="btn btn-success mb-4" href="{% url 'editarEconomia' posteo.titulo %}">Editar Posteo</a>   
+{% endif %}
+{% endblock %}
+

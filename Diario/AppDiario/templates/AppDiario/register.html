@@ -1,0 +1,24 @@
+{% extends "AppDiario/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1 class="text-white font-weight-bold"> REGISTRO </h1>
+                        <hr class="divider" />
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<h1 class="mb-4" style="color: #fff;">Ristrate a DiarioCoder</h1>
+<div class="row">
+        <div class="col-md-5">
+<form action="{% url 'register' %}" method="POST" class="form-control"> {% csrf_token %}
+
+        {{ form.as_p }}
+    
+        <button type="submit" class="btb btn-success" style="color: #fff;"> Registrate</button>
+
+</form>
+        </div>
+</div>
+
+{% endblock %}
